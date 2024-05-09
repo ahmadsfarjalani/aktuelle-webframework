@@ -1,7 +1,41 @@
-stages:
-  - build
+# Dieses Docker-Image beinhaltet eine spezifische Version von Node.js
+image: node:16
 
-build_job:
+# Definiert die verschiedenen Stages der Pipeline
+stages:
+  - install
+  - build
+  - test
+
+# Definiert den Cache für node_modules, um die Installation zu beschleunigen
+cache:
+  paths:
+    - node_modules/
+
+# Job zum Installieren von NPM-Abhängigkeiten
+install_dependencies:
+  stage: install
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+# Job zum Bauen des Projekts
+build_project:
   stage: build
   script:
-    - echo "Hello, World!"
+    - npm run build
+  dependencies:
+    - install_dependencies
+  artifacts:
+    paths:
+      - build/
+
+# Job zum Ausführen von Tests
+run_tests:
+  stage: test
+  script:
+    - npm test
+  dependencies:
+    - install_dependencies
