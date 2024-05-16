@@ -20,4 +20,10 @@ module.exports = {
   transformIgnorePatterns: [
     "/node_modules/(?!bson\\.cjs)" // Beachte das doppelte Backslash, um den Punkt zu escapen
   ],
+  transform: {
+    "^.+\\.tsx?$": "ts-jest",
+    "^(?!.*\\.(jsx?|tsx?|json)$)": "<rootDir>/node_modules/jest-transform-stub",
+    // Füge hier weitere Transformationsregeln hinzu, falls erforderlich
+  },
+  
 };
