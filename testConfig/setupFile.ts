@@ -13,36 +13,26 @@ import mongoose from "mongoose";
  * be run after globalSetup.ts and have access to the URI of the MongoMemoryServer in
  * the environment variable `MONGO_URI`.
  */
-
+let mongoServer: MongoMemoryServer;
 /**
  * Connects to the MongoDB instance. It uses the URI stored in the environment variable
  * `MONGO_URI`. This variable is set in globalSetup.ts.
  */
 beforeAll(async () => {
-   
-    let mongoServer: MongoMemoryServer;
     mongoServer = await MongoMemoryServer.create();
     const uri = mongoServer.getUri();
-    await mongoose.connect(uri, { dbName: 'test' });;
+    await mongoose.connect(uri, { dbName: 'test'});
 });
 
-
-
-/**
- * Drops the database and disconnects from the MongoDB instance.
- */
 afterAll(async () => {
     await mongoose.connection.dropDatabase();
     await mongoose.disconnect();
+    await mongoServer.stop();
 });
 
-/**
- * Deletes all documents from all collections. It does not use `dropDatabase` in order
- * to preserve indexes.
- */
 afterEach(async () => {
     const collections = Object.values(mongoose.connection.collections);
     for (const collection of collections) {
         await collection.deleteMany({});
     }
-})
+});
