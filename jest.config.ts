@@ -18,6 +18,6 @@ module.exports = {
   // connect/disconnect before/after all tests of a suite, clear database before each test
   setupFilesAfterEnv: ["<rootDir>/testConfig/setupFile.ts"],
   transformIgnorePatterns: [
-    "/node_modules/(?!bson\.cjs)" // Alle Dateien im node_modules-Verzeichnis ignorieren, außer bson.cjs
+    "/node_modules/(?!bson\\.cjs)" // Beachte das doppelte Backslash, um den Punkt zu escapen
   ],
 };
