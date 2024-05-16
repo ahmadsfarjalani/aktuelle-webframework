@@ -17,9 +17,11 @@ module.exports = {
   globalTeardown: "<rootDir>/testConfig/globalTeardown.ts",
   // connect/disconnect before/after all tests of a suite, clear database before each test
   setupFilesAfterEnv: ["<rootDir>/testConfig/setupFile.ts"],
+  transform: {
+    "^.+\\.[t|j]sx?$": "babel-jest"
+  },
   transformIgnorePatterns: [
-    "/node_modules/(?!bson\\.cjs)" // Beachte das doppelte Backslash, um den Punkt zu escapen
-  ],
- 
+    "/node_modules/(?!bson/)"
+  ]
   
 };
