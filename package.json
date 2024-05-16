@@ -6,9 +6,9 @@
     "express": "^4.19.2"
   },
   "scripts": {
-    "build": "npx tsc",
+    "build": "tsc",
     "start": "node ./dist/app.js",
-    "test": "npx tsc && jest --reporters=default --reporters=jest-junit --detectOpenHandles",
+    "test": " jest",
     "coverage": "npm test --coverage --coverageReporters=text --coverageReporters=clover --reporters=default --reporters=jest-junit --watchAll=false --passWithNoTests"
   },
   "devDependencies": {
