@@ -50,8 +50,8 @@ describe('DELETE /human/:id', () => {
   it('should delete a human by id', async () => {
     const humanData = { name: "Levent", password: "Hallo123", alter: 21 };
     const createResponse = await request(app).post('/human').send(humanData);
-    const humanId = createResponse.body._id;
-
+    const humanId = createResponse.body._id;//TETS 
+    
     const deleteResponse = await request(app).delete(`/human/${humanId}`);
     expect(deleteResponse.status).toBe(200);
     expect(deleteResponse.body).toHaveProperty('message', 'Human deleted successfully');
