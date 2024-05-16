@@ -1,5 +1,6 @@
 // cf. https://nodkz.github.io/mongodb-memory-server/docs/guides/integration-examples/test-runners
 
+import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
 
 /**
@@ -17,6 +18,14 @@ import mongoose from "mongoose";
  * Connects to the MongoDB instance. It uses the URI stored in the environment variable
  * `MONGO_URI`. This variable is set in globalSetup.ts.
  */
+beforeAll(async () => {
+   
+    let mongoServer: MongoMemoryServer;
+    mongoServer = await MongoMemoryServer.create();
+    const uri = mongoServer.getUri();
+    await mongoose.connect(uri, { dbName: 'test' });;
+});
+
 
 
 /**
