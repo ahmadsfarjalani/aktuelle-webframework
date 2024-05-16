@@ -1,10 +1,5 @@
 import request from 'supertest';
-import { MongoMemoryServer } from 'mongodb-memory-server';
 import app from '../src/app';
-
-let mongoServer: MongoMemoryServer;
-
-let server: any;
 
 
 

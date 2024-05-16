@@ -16,5 +16,8 @@ module.exports = {
   // stop mongo memory server
   globalTeardown: "<rootDir>/testConfig/globalTeardown.ts",
   // connect/disconnect before/after all tests of a suite, clear database before each test
-  setupFilesAfterEnv: ["<rootDir>/testConfig/setupFile.ts"]
+  setupFilesAfterEnv: ["<rootDir>/testConfig/setupFile.ts"],
+  transformIgnorePatterns: [
+    "/node_modules/(?!bson\.cjs)" // Alle Dateien im node_modules-Verzeichnis ignorieren, außer bson.cjs
+  ],
 };
