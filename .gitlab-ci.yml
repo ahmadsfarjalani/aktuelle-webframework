@@ -1,0 +1,17 @@
+image: node:14
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - npm install
+
+stages:
+  - test
+
+test:
+  script:
+    - export PATH=./node_modules/.bin:$PATH
+    - npm run build
+    - npm run test

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",  // Stelle sicher, dass die Zielversion ES2020 oder höher ist
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "exclude": ["node_modules"]
+}
