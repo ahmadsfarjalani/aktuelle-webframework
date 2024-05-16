@@ -13,5 +13,4 @@ stages:
 test:
   script:
     - export PATH=./node_modules/.bin:$PATH
-    - npm run build
-    - npm run test
+    - npm test
