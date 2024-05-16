@@ -5,11 +5,18 @@ cache:
     - node_modules/
 
 before_script:
+  - chmod +x ./node_modules/.bin/tsc
   - npm install
+
 
 stages:
   - build
   - test
+
+build:
+  stage: build
+  script:
+    - npm run build
 
 test:
   stage: test
