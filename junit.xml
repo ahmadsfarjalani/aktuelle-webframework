@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="2.811">
+  <testsuite name="POST /human" errors="0" failures="0" skipped="3" timestamp="2024-05-16T17:07:16" time="2.723" tests="5">
+    <testcase classname="POST /human should create a new human" name="POST /human should create a new human" time="0.129">
+    </testcase>
+    <testcase classname="GET /human/:id should retrieve a human by id" name="GET /human/:id should retrieve a human by id" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="PUT /human/:id should update a human by id" name="PUT /human/:id should update a human by id" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="DELETE /human/:id should delete a human by id" name="DELETE /human/:id should delete a human by id" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="POST /human should create a new human" name="POST /human should create a new human" time="0.03">
+    </testcase>
+  </testsuite>
+</testsuites>
