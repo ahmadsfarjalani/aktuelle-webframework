@@ -15,3 +15,9 @@ const HumanSchema: Schema = new Schema({
 const Human = mongoose.model<IHuman>('Human', HumanSchema);
 
 export { Human, IHuman };
+
+const Levent: Schema = new Schema({
+  name: { type: String, required: true },
+  password: { type: String, required: true },
+  alter: { type: Number, required: true },
+});
