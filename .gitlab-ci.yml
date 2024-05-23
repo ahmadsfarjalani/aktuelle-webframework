@@ -16,6 +16,7 @@ stages:
 build:
   stage: build
   script:
+    - which tsc
     - ./node_modules/.bin/tsc
 
 test:
