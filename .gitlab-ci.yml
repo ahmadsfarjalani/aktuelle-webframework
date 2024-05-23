@@ -21,4 +21,4 @@ build:
 test:
   stage: test
   script:
-    - npx jest --ci
+    - ./node_modules/.bin/jest --ci
