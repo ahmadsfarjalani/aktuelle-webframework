@@ -5,10 +5,8 @@ cache:
     - node_modules/
 
 before_script:
-  - chmod +x ./node_modules/.bin/tsc
-  - chmod +x ./node_modules/.bin/jest
   - npm install
-
+  - chmod +x ./node_modules/.bin/tsc
 
 stages:
   - build
@@ -17,9 +15,9 @@ stages:
 build:
   stage: build
   script:
-    - npm run build
+    - ./node_modules/.bin/tsc
 
 test:
   stage: test
   script:
-    - npm run test
+    - npx jest --ci
